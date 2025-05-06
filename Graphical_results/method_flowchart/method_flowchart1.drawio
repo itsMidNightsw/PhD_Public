@@ -1,0 +1,127 @@
+<mxfile host="Electron" modified="2024-04-11T14:37:40.787Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="5M8vbP3qEZuKc1xfE5J0" version="24.1.0" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1362" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="fR4wMlXP1ke73_upnfEr-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-2" target="fR4wMlXP1ke73_upnfEr-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="95" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-2" value="12 Sentinel-2 images&amp;nbsp;&lt;div&gt;(6 in 2017, 6 in 2023)&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="20" y="47.5" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-7" value="Polygon delineation &amp;amp; Pixel extraction" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="350" y="51.25" width="170" height="62.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-9" target="fR4wMlXP1ke73_upnfEr-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-13" value="Training part (80%)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fR4wMlXP1ke73_upnfEr-12">
+          <mxGeometry x="0.0035" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=80;exitDy=57;exitPerimeter=0;entryX=0.7;entryY=0.05;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-9" target="fR4wMlXP1ke73_upnfEr-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="217" />
+              <mxPoint x="460" y="350" />
+              <mxPoint x="560" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-17" value="Validation part (20%)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fR4wMlXP1ke73_upnfEr-16">
+          <mxGeometry x="0.0456" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-9" value="Polygon Dataset&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;n = 7112 pixels&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=14;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="270" y="160" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-7" target="fR4wMlXP1ke73_upnfEr-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-19" target="fR4wMlXP1ke73_upnfEr-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="360" />
+              <mxPoint x="320" y="360" />
+              <mxPoint x="320" y="467" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-19" value="Random Forest training" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="90" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-49" target="fR4wMlXP1ke73_upnfEr-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-20" value="Trained Random Forest Algorithm" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="330" y="430" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-27" value="Random Forest validation on polygon dataset&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Accuracy = 99.29%&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="640" y="350" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-28" value="3 Sentinel-2 images for&amp;nbsp;&lt;div&gt;ground truth validation&lt;/div&gt;&lt;div&gt;(2022-2023)&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="30" y="510" width="190" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-29" value="Ground Truth Dataset&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;n =&amp;nbsp; 196 points&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=14;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="85" y="645" width="80" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-32" value="Random Forest validation on Ground Truth dataset &amp;amp; detection threshold estimation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Accuracy = 78%&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="640" y="575" width="195" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-36" target="fR4wMlXP1ke73_upnfEr-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="795" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-36" value="187 Sentinel-2 images&lt;div&gt;&amp;nbsp;(from 2017 to 2022)&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="100" y="880" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-38" value="Classified seagrass maps&lt;div&gt;&amp;nbsp;(from 2017 to 2022)&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="570" y="870" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-44" target="fR4wMlXP1ke73_upnfEr-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;exitX=0.5;exitY=0.88;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-28" target="fR4wMlXP1ke73_upnfEr-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="576" as="sourcePoint" />
+            <mxPoint x="125" y="645" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-44" target="fR4wMlXP1ke73_upnfEr-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="620" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="125" y="610" />
+              <mxPoint x="480" y="610" />
+              <mxPoint x="480" y="613" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-44" value="" style="shape=waypoint;sketch=0;fillStyle=solid;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="115" y="600" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="fR4wMlXP1ke73_upnfEr-20" target="fR4wMlXP1ke73_upnfEr-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="495" y="430" as="sourcePoint" />
+            <mxPoint x="660" y="390" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="495" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fR4wMlXP1ke73_upnfEr-49" value="" style="shape=waypoint;sketch=0;fillStyle=solid;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="550" y="380" width="20" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
