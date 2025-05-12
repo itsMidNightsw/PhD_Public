@@ -1,5 +1,9 @@
 #classify_multi_images_4bands_V2.r
 
+
+### data_path_xxxx à completer en fonction de la localisation des données (ici, disque dur externe "my passport")
+
+
 ###################################
 ############# 2017 ################
 ###################################
@@ -16,9 +20,9 @@ dates_ordered_2017 = c("20170103","20170113","20170222","20170314","20170403","2
 
 for (date in dates_ordered_2017) {
   
-  classify_simple_image(date = date, data_path = data_path_2017, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2017_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2017_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2017, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/plots", sep = "")
   )
   
 }
@@ -43,9 +47,9 @@ dates_ordered_2018 = c("20180103","20180123","20180128","20180202","20180227","2
 
 for (date in dates_ordered_2018) {
   
-  classify_simple_image(date = date, data_path = data_path_2018, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2018_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2018_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2018, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/plots", sep = "")
   )
   
 }
@@ -66,9 +70,9 @@ dates_ordered_2019 = c("20190103","20190212","20190222","20190227","20190304","2
 
 for (date in dates_ordered_2019) {
   
-  classify_simple_image(date = date, data_path = data_path_2019, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2019_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2019_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2019, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/plots", sep = "")
   )
   
 }
@@ -88,9 +92,9 @@ dates_ordered_2020 = c("20200108","20200222","20200308","20200313","20200318","2
 
 for (date in dates_ordered_2020) {
   
-  classify_simple_image(date = date, data_path = data_path_2020, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2020_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2020_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2020, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/plots", sep = "")
   )
   
 }
@@ -113,9 +117,9 @@ dates_ordered_2021 = c("20210127","20210211","20210226","20210308","20210313","2
 
 for (date in dates_ordered_2021) {
   
-  classify_simple_image(date = date, data_path = data_path_2021, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2021_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2021_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2021, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/plots", sep = "")
   )
   
 }
@@ -139,9 +143,9 @@ dates_ordered_2022 = c("20220112","20220117","20220122","20220127","20220201","2
 
 for (date in dates_ordered_2022) {
   
-  classify_simple_image(date = date, data_path = data_path_2022, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2022_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2022_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2022, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/plots", sep = "")
   )
   
 }
@@ -153,11 +157,11 @@ for (date in dates_ordered_2022) {
 
 data_path_2023 = "/media/adam/My Passport/DATA_THESE/DATA/2023"
 
-dates_ordered_2023 = c("20230112","20230127","20230201","20230206","20230211","20230226","20230303","20230328",
-                       "20230407","20230417","20230502","20230517","20230527","20230601","20230616","20230626",
-                       "20230716")
-
-dates_ordered_2023 = c("20230328","20230502","20230527")
+# dates_ordered_2023 = c("20230112","20230127","20230201","20230206","20230211","20230226","20230303","20230328",
+#                        "20230407","20230417","20230502","20230517","20230527","20230601","20230616","20230626",
+#                        "20230716")
+# 
+# dates_ordered_2023 = c("20230328","20230502","20230527")
 
 
 dates_ordered_2023 = c("20230112","20230127","20230201","20230206","20230211","20230226","20230303","20230328",
@@ -169,9 +173,9 @@ dates_ordered_2023 = c("20230112","20230127","20230201","20230206","20230211","2
 
 for (date in dates_ordered_2023) {
   
-  classify_simple_image(date = date, data_path = data_path_2023, export = T,
-                        export_dir_raster = "~/Thèse/Resultats/2023_RF_4bands_V2/rasters",
-                        export_dir_png = "~/Thèse/Resultats/2023_RF_4bands_V2/plots/"
+  classify_simple_image(date = date, data_path = data_path_2023, export = F,
+                        export_dir_raster = paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""),
+                        export_dir_png = paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/plots", sep = "")
   )
   
 }

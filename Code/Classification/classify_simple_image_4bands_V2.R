@@ -19,7 +19,6 @@ classify_simple_image = function(date, data_path, export, export_dir_raster, exp
   
   #prerequest = une image, la date de l'image, un obj random forest, les differents shapefiles
   
-  setwd("~/Thèse/Random Forest")
   wd=getwd()
   
   print(date)
@@ -28,10 +27,11 @@ classify_simple_image = function(date, data_path, export, export_dir_raster, exp
   imagery_fullnames=dir(data_path, pattern="V", full.names = T)
   
   #'Lire les shapefiles zone d'étude
-  emprise=shapefile("/media/adam/My Passport/WD/_TEST/DATA/SHAPEFILE/emprise.shp") #shapefile emprise pour cropping
-  lagune_elargie=shapefile("/media/adam/My Passport/WD/_TEST/DATA/SHAPEFILE/lagune_elargie.shp") #shapefile lagune grand bagnas elargie avec bassins ouest
-  grand_bagnas=shapefile("/media/adam/My Passport/WD/_TEST/DATA/SHAPEFILE/grand_bagnas.shp") #shapefile lagune grand bagnas 
-  masque_roseliere = raster("/media/adam/My Passport/WD/_TEST/DATA/MASK/mask_lagune.tif")
+  
+  emprise=shapefile(paste(getwd(),"/Data/Couches_Bagnas/emprise.shp", sep = "")) #shapefile emprise pour cropping
+  lagune_elargie=shapefile(paste(getwd(),"/Data/Couches_Bagnas/lagune_elargie.shp", sep = "")) #shapefile lagune grand bagnas elargie avec bassins ouest
+  grand_bagnas=shapefile(paste(getwd(),"/Data/Couches_Bagnas/grand_bagnas.shp", sep = "")) #shapefile lagune grand bagnas 
+  masque_roseliere = raster(paste(getwd(),"/Data/mask_bagnas/mask_lagune.tif", sep = ""))
   
   
   #lagune_elargie_lambert93 = spTransform(lagune_elargie, CRS("+init=epsg:2154"))
