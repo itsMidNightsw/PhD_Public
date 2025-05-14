@@ -10,19 +10,19 @@ library(plotrix)
 #library(verification)
 
 
-data_terrain_2022 = read.csv("~/Thèse/Terrain/Data terrain 14062022/releves_macrophytes_gb_2022-06-14.csv",
+data_terrain_2022 = read.csv(paste(getwd(),"/Data/Data_bagnas_validation_terrain/06-2022/releves_macrophytes_gb_2022-06-14.csv", sep = ""),
                              sep = ",")
 
-data_terrain_03 = read.csv("~/Thèse/Terrain/Validation terrain 2023/0323/releves_macrophytes_gb_2023-03-23.csv",
+data_terrain_03 = read.csv(paste(getwd(),"/Data/Data_bagnas_validation_terrain/03-2023/releves_macrophytes_gb_2023-03-23.csv", sep = ""),
                            sep = ";")
 
-data_terrain_04 = read.csv("~/Thèse/Terrain/Validation terrain 2023/0423/releves_macrophytes_gb_2023-04.csv",
+data_terrain_04 = read.csv(paste(getwd(),"/Data/Data_bagnas_validation_terrain/04-2023/releves_macrophytes_gb_2023-04.csv", sep = ""),
                            sep = ";")
 
-data_terrain_05 = read.csv("~/Thèse/Terrain/Validation terrain 2023/0523/releves_macrophytes_gb_2023-05-23.csv",
+data_terrain_05 = read.csv(paste(getwd(),"/Data/Data_bagnas_validation_terrain/05-2023/releves_macrophytes_gb_2023-05-23.csv", sep = ""),
                            sep = ";")
 
-data_terrain_06 = read.csv("~/Thèse/Terrain/Validation terrain 2023/0623/releves_macrophytes_gb_2023-06-22.csv",
+data_terrain_06 = read.csv(paste(getwd(),"/Data/Data_bagnas_validation_terrain/06-2023/releves_macrophytes_gb_2023-06-22.csv", sep = ""),
                            sep = ";")
 
 
