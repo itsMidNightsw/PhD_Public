@@ -22,7 +22,9 @@ library(sjPlot)
 
 ##### LOAD DATA #######
 
-data = read.csv("~/Thèse/Models_stats/herbier_4bands_V2_2017-2022.csv")
+data = read.csv(paste(getwd(),"/Data/Data_bagnas_herbier_hydro/herbier_4bands_V2_2017-2022.csv", sep = ""),
+                sep = ",")
+
 data$date = as.Date(data$date)
 data$annee = data$date
 data$annee = format(data$annee, format = "%Y")
