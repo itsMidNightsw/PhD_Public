@@ -12,7 +12,7 @@ library(gridExtra)
 
 
 
-mask = raster("~/Thèse/Analyse_Spatiale/mask_v1.tiff")
+mask = raster(paste(getwd(),"/Data/mask_analyse_spatiale/mask_v1.tiff", sep = ""))
 premask <- is.na(mask)
 mask = mask(premask, premask, inverse = F, maskvalue = 1)
 maskinv = mask(premask, premask, inverse = T, maskvalue = 1)
