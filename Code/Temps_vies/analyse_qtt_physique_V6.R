@@ -1522,9 +1522,6 @@ all_ex_data_hist <- do.call('rbind', list(ex_hist_1718,ex_hist_1819,ex_hist_1920
 
 
 
-raster::writeRaster(first_dates_1718, , format = "GTiff")
-
-
 
 raster::writeRaster(first_dates_1718, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1718_raster", sep = ""), format = "GTiff")
 raster::writeRaster(first_dates_1819, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1819_raster", sep = ""), format = "GTiff")
