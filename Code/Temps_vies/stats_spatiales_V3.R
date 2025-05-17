@@ -5,38 +5,38 @@ library(gridExtra)
 
 ##data read####
 
-ltd_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1718_raster.tif")
-atd_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_1718_raster.tif")
+ltd_1718 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1718_raster.tif", sep = ""))
+atd_1718 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_1718_raster.tif", sep = ""))
 stack_1718 <- stack(ltd_1718, atd_1718)
 names(stack_1718) <- c("ltd", "atd")
 
 
-ltd_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1819_raster.tif")
-atd_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_1819_raster.tif")
+ltd_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1819_raster.tif", sep = ""))
+atd_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_1819_raster.tif", sep = ""))
 stack_1819 <- stack(ltd_1819, atd_1819)
 names(stack_1819) <- c("ltd", "atd")
 
 
 
-ltd_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1920_raster.tif")
-atd_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_1920_raster.tif")
+ltd_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1920_raster.tif", sep = ""))
+atd_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_1920_raster.tif", sep = ""))
 stack_1920 <- stack(ltd_1920, atd_1920)
 names(stack_1920) <- c("ltd", "atd")
 
 
-ltd_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2021_raster.tif")
-atd_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_2021_raster.tif")
+ltd_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2021_raster.tif", sep = ""))
+atd_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_2021_raster.tif", sep = ""))
 stack_2021 <- stack(ltd_2021, atd_2021)
 names(stack_2021) <- c("ltd", "atd")
 
-ltd_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2122_raster.tif")
-atd_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_2122_raster.tif")
+ltd_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2122_raster.tif", sep = ""))
+atd_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_2122_raster.tif", sep = ""))
 stack_2122 <- stack(ltd_2122, atd_2122)
 names(stack_2122) <- c("ltd", "atd")
 
 
-ltd_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_22_raster.tif")
-atd_2223 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_2223_raster.tif")
+ltd_22 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_22_raster.tif", sep = ""))
+atd_2223 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_2223_raster.tif", sep = ""))
 stack_2223 <- stack(ltd_22, atd_2223)
 names(stack_2223) <- c("ltd", "atd")
 
