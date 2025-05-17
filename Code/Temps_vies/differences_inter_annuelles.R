@@ -13,55 +13,29 @@ library(data.table)
 
 
 #load data v6
-first_dates_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1718_raster.tif")
-last_dates_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e1718_raster.tif")
-ltd_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1718_raster.tif")
+first_dates_1718 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1718_raster.tif", sep = ""))
+last_dates_1718 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e1718_raster.tif", sep = ""))
+ltd_1718 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1718_raster.tif", sep = ""))
 
-first_dates_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1819_raster.tif")
-last_dates_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e1819_raster.tif")
-ltd_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1819_raster.tif")
+first_dates_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1819_raster.tif", sep = ""))
+last_dates_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e1819_raster.tif", sep = ""))
+ltd_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1819_raster.tif", sep = ""))
 
-first_dates_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1920_raster.tif")
-last_dates_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e1920_raster.tif")
-ltd_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1920_raster.tif")
+first_dates_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1920_raster.tif", sep = ""))
+last_dates_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e1920_raster.tif", sep = ""))
+ltd_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1920_raster.tif", sep = ""))
 
-first_dates_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s2021_raster.tif")
-last_dates_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e2021_raster.tif")
-ltd_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2021_raster.tif")
+first_dates_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s2021_raster.tif", sep = ""))
+last_dates_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e2021_raster.tif", sep = ""))
+ltd_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2021_raster.tif", sep = ""))
 
-first_dates_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s2122_raster.tif")
-last_dates_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e2122_raster.tif")
-ltd_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2122_raster.tif")
+first_dates_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s2122_raster.tif", sep = ""))
+last_dates_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e2122_raster.tif", sep = ""))
+ltd_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2122_raster.tif", sep = ""))
 
-first_dates_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s22_raster.tif")
-last_dates_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e22_raster.tif")
-ltd_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_22_raster.tif")
-
-
-#load data v4
-first_dates_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/s1718_raster.tif")
-last_dates_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/e1718_raster.tif")
-ltd_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/ltd_1718_raster.tif")
-
-first_dates_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/s1819_raster.tif")
-last_dates_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/e1819_raster.tif")
-ltd_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/ltd_1819_raster.tif")
-
-first_dates_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/s1920_raster.tif")
-last_dates_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/e1920_raster.tif")
-ltd_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/ltd_1920_raster.tif")
-
-first_dates_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/s2021_raster.tif")
-last_dates_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/e2021_raster.tif")
-ltd_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/ltd_2021_raster.tif")
-
-first_dates_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/s2122_raster.tif")
-last_dates_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/e2122_raster.tif")
-ltd_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/ltd_2122_raster.tif")
-
-first_dates_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/s22_raster.tif")
-last_dates_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/e22_raster.tif")
-ltd_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV4/rasters/ltd_22_raster.tif")
+first_dates_22 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s22_raster.tif", sep = ""))
+last_dates_22 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e22_raster.tif", sep = ""))
+ltd_22 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_22_raster.tif", sep = ""))
 
 
 ############## tests comparaison moyenne ##########
