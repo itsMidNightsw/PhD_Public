@@ -346,47 +346,47 @@ legend("topright", paste("R squared = ",as.character(round(summary(lm_all_years_
 ##############################################################
 
 
-ltd_1718 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1718_raster.tif")
-s_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1819_raster.tif")
+ltd_1718 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1718_raster.tif", sep = ""))
+s_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1819_raster.tif", sep = ""))
 stack_1 <- stack(ltd_1718, s_1819)
 names(stack_1) <- c("ltd", "s")
 
 
 
-ltd_1819 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1819_raster.tif")
-s_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1920_raster.tif")
+ltd_1819 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1819_raster.tif", sep = ""))
+s_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1920_raster.tif", sep = ""))
 stack_2 <- stack(ltd_1819, s_1920)
 names(stack_2) <- c("ltd", "s")
 
 
 
-ltd_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1920_raster.tif")
-s_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s2021_raster.tif")
+ltd_1920 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1920_raster.tif", sep = ""))
+s_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s2021_raster.tif", sep = ""))
 stack_3 <- stack(ltd_1920, s_2021)
 names(stack_3) <- c("ltd", "s")
 
 
-ltd_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2021_raster.tif")
-s_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s2122_raster.tif")
+ltd_2021 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2021_raster.tif", sep = ""))
+s_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s2122_raster.tif", sep = ""))
 stack_4 <- stack(ltd_2021, s_2122)
 names(stack_4) <- c("ltd", "s")
 
-ltd_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2122_raster.tif")
-s_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s22_raster.tif")
+ltd_2122 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2122_raster.tif", sep = ""))
+s_22 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s22_raster.tif", sep = ""))
 stack_5 <- stack(ltd_2122, s_22)
 names(stack_5) <- c("ltd", "s")
 
 
-ltd_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_22_raster.tif")
-s_23 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s23_raster.tif")
+ltd_22 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_22_raster.tif", sep = ""))
+s_23 = raster(paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s23_raster.tif", sep = ""))
 stack_6 <- stack(ltd_22, s_23)
 names(stack_6) <- c("ltd", "s")
 
 
 #### vecday #####
 
-fs1718 <- c(list.files(path="~/Thèse/Resultats/2017_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1718 <- c(list.files(path=paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1718 = fs1718[-c(1:2,36:63)]
 raster_stack_1718 = raster::stack(fs1718)
 vec_names_1718 = names(raster_stack_1718)
@@ -400,17 +400,16 @@ vec_day_1718[32] = vec_day_1718[32] + 365
 vec_day_1718[33] = vec_day_1718[33] + 365
 
 
-fs1819 <- c(list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
-fs1819 = fs1819[-c(1:6,35:63)]
+fs1819 <- c(list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 raster_stack_1819 = raster::stack(fs1819)
 vec_names_1819 = names(raster_stack_1819)
 date_values_1819 <- as.Date(names(raster_stack_1819), format="X%Y%m%d")
 vec_day_1819 = yday(date_values_1819)
 
 
-fs1920 <- c(list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1920 <- c(list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1920 = fs1920[-c(34:60)]
 raster_stack_1920 = raster::stack(fs1920)
 vec_names_1920 = names(raster_stack_1920)
@@ -421,8 +420,8 @@ vec_day_1920[31] = vec_day_1920[31] + 365
 vec_day_1920[32] = vec_day_1920[32] + 365
 vec_day_1920[33] = vec_day_1920[33] + 365
 
-fs2021 <- c(list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2021 <- c(list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2021 = fs2021[-c(1:4, 35:62)]
 raster_stack_2021 = raster::stack(fs2021)
 vec_names_2021 = names(raster_stack_2021)
@@ -433,8 +432,8 @@ vec_day_2021[29] = vec_day_2021[29] + 366
 vec_day_2021[30] = vec_day_2021[30] + 366
 
 
-fs2122 <- c(list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2122 <- c(list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2122 = fs2122[-c(1:3, 41:64)]
 raster_stack_2122 = raster::stack(fs2122)
 vec_names_2122 = names(raster_stack_2122)
@@ -451,14 +450,14 @@ vec_day_2122[36] = vec_day_2122[36] + 365
 vec_day_2122[37] = vec_day_2122[37] + 365
 
 
-fs22 <- list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE)
+fs22 <- list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 fs22 = fs22[-c(1:9)]
 raster_stack_22 = raster::stack(fs22)
 vec_names_22 = names(raster_stack_22)
 date_values_22 <- as.Date(names(raster_stack_22), format="X%Y%m%d")
 vec_day_22 = yday(date_values_22)
 
-fs23 <- list.files(path="~/Thèse/Resultats/2023_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE)
+fs23 <- list.files(path=paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 #fs23 = fs23[-c(1:8)]
 raster_stack_23 = raster::stack(fs23)
 vec_names_23 = names(raster_stack_23)
