@@ -103,8 +103,8 @@ get_physical_values_abs <- function(x, method, vec_day) {
 #### periodes presence ####
 ## Saison biologique 2017 - 2018 ##
 
-fs1718 <- c(list.files(path="~/Thèse/Resultats/2017_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1718 <- c(list.files(path=paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1718 = fs1718[-c(1:2,36:63)]
 raster_stack_1718 = raster::stack(fs1718)
 vec_names_1718 = names(raster_stack_1718)
@@ -131,8 +131,8 @@ raster_stack_1718_lambert93_masked = mask(raster_stack_1718_lambert93, mask)
 
 ## Saison biologique 2018 - 2019 ##
 
-fs1819 <- c(list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1819 <- c(list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1819 = fs1819[-c(1:6,35:63)]
 raster_stack_1819 = raster::stack(fs1819)
 vec_names_1819 = names(raster_stack_1819)
@@ -145,8 +145,8 @@ raster_stack_1819_lambert93 = projectRaster(raster_stack_1819, crs = "+init=epsg
 raster_stack_1819_lambert93_masked = mask(raster_stack_1819_lambert93, mask)
 ## Saison biologique 2019 - 2020 ##
 
-fs1920 <- c(list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1920 <- c(list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1920 = fs1920[-c(34:60)]
 raster_stack_1920 = raster::stack(fs1920)
 vec_names_1920 = names(raster_stack_1920)
@@ -162,8 +162,8 @@ raster_stack_1920_lambert93 = projectRaster(raster_stack_1920, crs = "+init=epsg
 raster_stack_1920_lambert93_masked = mask(raster_stack_1920_lambert93, mask)
 ## Saison biologique 2020 - 2021 ##
 
-fs2021 <- c(list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2021 <- c(list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2021 = fs2021[-c(1:4, 35:62)]
 raster_stack_2021 = raster::stack(fs2021)
 vec_names_2021 = names(raster_stack_2021)
@@ -178,8 +178,8 @@ raster_stack_2021_lambert93 = projectRaster(raster_stack_2021, crs = "+init=epsg
 raster_stack_2021_lambert93_masked = mask(raster_stack_2021_lambert93, mask)
 ## Saison biologique 2021 - 2022 ##
 
-fs2122 <- c(list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2122 <- c(list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2122 = fs2122[-c(1:3, 41:64)]
 raster_stack_2122 = raster::stack(fs2122)
 vec_names_2122 = names(raster_stack_2122)
@@ -201,7 +201,7 @@ raster_stack_2122_lambert93 = projectRaster(raster_stack_2122, crs = "+init=epsg
 raster_stack_2122_lambert93_masked = mask(raster_stack_2122_lambert93, mask)
 ## Saison biologique 2022 ##
 
-fs22 <- list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE)
+fs22 <- list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 fs22 = fs22[-c(1:9)]
 raster_stack_22 = raster::stack(fs22)
 vec_names_22 = names(raster_stack_22)
@@ -214,7 +214,7 @@ raster_stack_22_lambert93_masked = mask(raster_stack_22_lambert93, mask)
 
 ## Saison biologique 2023 ##
 
-fs23 <- list.files(path="~/Thèse/Resultats/2023_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE)
+fs23 <- list.files(path=paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 #fs23 = fs23[-c(1:8)]
 raster_stack_23 = raster::stack(fs23)
 vec_names_23 = names(raster_stack_23)
@@ -236,8 +236,8 @@ mapna = is.na(anymap)
 #### periodes absences ####
 ## Saison biologique 2017 - 2018 ##
 
-fs1718 <- c(list.files(path="~/Thèse/Resultats/2017_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1718 <- c(list.files(path=paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1718_abs = fs1718[-c(1:16,54:63)]
 raster_stack_1718_abs = raster::stack(fs1718_abs)
 vec_names_1718_abs = names(raster_stack_1718_abs)
@@ -260,8 +260,8 @@ raster_stack_1718_abs_lambert93_masked = mask(raster_stack_1718_abs_lambert93, m
 
 ## Saison biologique 2018 - 2019 ##
 
-fs1819 <- c(list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1819 <- c(list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1819_abs = fs1819[-c(1:24,54:63)]
 raster_stack_1819_abs = raster::stack(fs1819_abs)
 vec_names_1819_abs = names(raster_stack_1819_abs)
@@ -275,8 +275,8 @@ raster_stack_1819_abs_lambert93_masked = mask(raster_stack_1819_abs_lambert93, m
 
 ## Saison biologique 2019 - 2020 ##
 
-fs1920 <- c(list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1920 <- c(list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1920_abs = fs1920[-c(1:19,51:60)]
 raster_stack_1920_abs = raster::stack(fs1920_abs)
 vec_names_1920_abs = names(raster_stack_1920_abs)
@@ -290,8 +290,8 @@ raster_stack_1920_abs_lambert93 = projectRaster(raster_stack_1920_abs, crs = "+i
 raster_stack_1920_abs_lambert93_masked = mask(raster_stack_1920_abs_lambert93, mask)
 ## Saison biologique 2020 - 2021 ##
 
-fs2021 <- c(list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2021 <- c(list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2021_abs = fs2021[-c(1:21, 50:62)]
 raster_stack_2021_abs = raster::stack(fs2021_abs)
 vec_names_2021_abs = names(raster_stack_2021_abs)
@@ -305,8 +305,8 @@ raster_stack_2021_abs_lambert93 = projectRaster(raster_stack_2021_abs, crs = "+i
 raster_stack_2021_abs_lambert93_masked = mask(raster_stack_2021_abs_lambert93, mask)
 ## Saison biologique 2021 - 2022 ##
 
-fs2122 <- c(list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2122 <- c(list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2122_abs = fs2122[-c(1:18, 52:64)]
 raster_stack_2122_abs = raster::stack(fs2122_abs)
 vec_names_2122_abs = names(raster_stack_2122_abs)
@@ -320,8 +320,8 @@ raster_stack_2122_abs_lambert93 = projectRaster(raster_stack_2122_abs, crs = "+i
 raster_stack_2122_abs_lambert93_masked = mask(raster_stack_2122_abs_lambert93, mask)
 ## Saison biologique 2022-2023 ##
 
-fs2223 <- c(list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2023_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2223 <- c(list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2223_abs = fs2223[-c(1:20,54:67)]
 raster_stack_2223_abs = raster::stack(fs2223_abs)
 vec_names_2223_abs = names(raster_stack_2223_abs)
