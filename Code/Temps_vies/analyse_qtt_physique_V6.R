@@ -1520,35 +1520,48 @@ all_ex_data_hist <- do.call('rbind', list(ex_hist_1718,ex_hist_1819,ex_hist_1920
 
 ############ write rasters #################
 
-raster::writeRaster(first_dates_1718, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1718_raster", format = "GTiff")
-raster::writeRaster(first_dates_1819, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1819_raster", format = "GTiff")
-raster::writeRaster(first_dates_1920, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s1920_raster", format = "GTiff")
-raster::writeRaster(first_dates_2021, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s2021_raster", format = "GTiff")
-raster::writeRaster(first_dates_2122, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s2122_raster", format = "GTiff")
-raster::writeRaster(first_dates_22, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s22_raster", format = "GTiff")
-raster::writeRaster(first_dates_23, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/s23_raster", format = "GTiff")
-
-raster::writeRaster(last_dates_1718, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e1718_raster", format = "GTiff")
-raster::writeRaster(last_dates_1819, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e1819_raster", format = "GTiff")
-raster::writeRaster(last_dates_1920, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e1920_raster", format = "GTiff")
-raster::writeRaster(last_dates_2021, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e2021_raster", format = "GTiff")
-raster::writeRaster(last_dates_2122, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e2122_raster", format = "GTiff")
-raster::writeRaster(last_dates_22, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/e22_raster", format = "GTiff")
-
-raster::writeRaster(ltd_1718, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1718_raster", format = "GTiff")
-raster::writeRaster(ltd_1819, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1819_raster", format = "GTiff")
-raster::writeRaster(ltd_1920, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1920_raster", format = "GTiff")
-raster::writeRaster(ltd_2021, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2021_raster", format = "GTiff")
-raster::writeRaster(ltd_2122, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2122_raster", format = "GTiff")
-raster::writeRaster(ltd_22, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_22_raster", format = "GTiff")
 
 
-raster::writeRaster(atd_1718, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_1718_raster", format = "GTiff")
-raster::writeRaster(atd_1819, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_1819_raster", format = "GTiff")
-raster::writeRaster(atd_1920, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_1920_raster", format = "GTiff")
-raster::writeRaster(atd_2021, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_2021_raster", format = "GTiff")
-raster::writeRaster(atd_2122, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_2122_raster", format = "GTiff")
-raster::writeRaster(atd_2223, "~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/atd_2223_raster", format = "GTiff")
+raster::writeRaster(first_dates_1718, , format = "GTiff")
+
+
+
+raster::writeRaster(first_dates_1718, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1718_raster", sep = ""), format = "GTiff")
+raster::writeRaster(first_dates_1819, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1819_raster", sep = ""), format = "GTiff")
+raster::writeRaster(first_dates_1920, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s1920_raster", sep = ""), format = "GTiff")
+raster::writeRaster(first_dates_2021, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s2021_raster", sep = ""), format = "GTiff")
+raster::writeRaster(first_dates_2122, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s2122_raster", sep = ""), format = "GTiff")
+raster::writeRaster(first_dates_22, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s22_raster", sep = ""), format = "GTiff")
+raster::writeRaster(first_dates_23, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/s23_raster", sep = ""), format = "GTiff")
+
+raster::writeRaster(last_dates_1718, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e1718_raster", sep = ""), format = "GTiff")
+raster::writeRaster(last_dates_1819, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e1819_raster", sep = ""), format = "GTiff")
+raster::writeRaster(last_dates_1920, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e1920_raster", sep = ""), format = "GTiff")
+raster::writeRaster(last_dates_2021, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e2021_raster", sep = ""), format = "GTiff")
+raster::writeRaster(last_dates_2122, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e2122_raster", sep = ""), format = "GTiff")
+raster::writeRaster(last_dates_22, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e22_raster", sep = ""), format = "GTiff")
+raster::writeRaster(last_dates_23, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/e23_raster", sep = ""), format = "GTiff")
+
+
+
+
+raster::writeRaster(ltd_1718, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1718_raster", sep = ""), format = "GTiff")
+raster::writeRaster(ltd_1819, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1819_raster", sep = ""), format = "GTiff")
+raster::writeRaster(ltd_1920, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_1920_raster", sep = ""), format = "GTiff")
+raster::writeRaster(ltd_2021, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2021_raster", sep = ""), format = "GTiff")
+raster::writeRaster(ltd_2122, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_2122_raster", sep = ""), format = "GTiff")
+raster::writeRaster(ltd_22, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/ltd_22_raster", sep = ""), format = "GTiff")
+
+
+
+raster::writeRaster(atd_1718, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_1718_raster", sep = ""), format = "GTiff")
+raster::writeRaster(atd_1819, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_1819_raster", sep = ""), format = "GTiff")
+raster::writeRaster(atd_1920, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_1920_raster", sep = ""), format = "GTiff")
+raster::writeRaster(atd_2021, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_2021_raster", sep = ""), format = "GTiff")
+raster::writeRaster(atd_2122, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_2122_raster", sep = ""), format = "GTiff")
+raster::writeRaster(atd_22, paste(getwd(),"/Graphical_results/Qtt_physiques/rasters/atd_22_raster", sep = ""), format = "GTiff")
+
+
 
 
 
