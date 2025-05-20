@@ -21,7 +21,7 @@ library(dplyr)
 
 ###### READ DATA #######
 
-mask = raster("~/Thèse/Analyse_Spatiale/mask_v1.tiff")
+mask = raster(paste(getwd(),"/Data/mask_analyse_spatiale/mask_v1.tiff", sep = ""))
 premask <- is.na(mask)
 mask = mask(premask, premask, inverse = F, maskvalue = 1)
 maskinv = mask(premask, premask, inverse = T, maskvalue = 1)
@@ -38,8 +38,8 @@ plot(b)
 
 ## Saison biologique 2017 - 2018 ##
 
-fs1718 <- c(list.files(path="~/Thèse/Resultats/2017_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1718 <- c(list.files(path=paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1718 = fs1718[-c(1:2,36:63)]
 raster_stack_1718 = raster::stack(fs1718)
 vec_names_1718 = names(raster_stack_1718)
@@ -66,8 +66,8 @@ raster_stack_1718_lambert93_masked = mask(raster_stack_1718_lambert93, mask)
 
 ## Saison biologique 2018 - 2019 ##
 
-fs1819 <- c(list.files(path="~/Thèse/Resultats/2018_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1819 <- c(list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1819 = fs1819[-c(1:6,36:63)]
 raster_stack_1819 = raster::stack(fs1819)
 vec_names_1819 = names(raster_stack_1819)
@@ -80,8 +80,8 @@ raster_stack_1819_lambert93 = projectRaster(raster_stack_1819, crs = "+init=epsg
 raster_stack_1819_lambert93_masked = mask(raster_stack_1819_lambert93, mask)
 ## Saison biologique 2019 - 2020 ##
 
-fs1920 <- c(list.files(path="~/Thèse/Resultats/2019_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs1920 <- c(list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1920 = fs1920[-c(35:60)]
 raster_stack_1920 = raster::stack(fs1920)
 vec_names_1920 = names(raster_stack_1920)
@@ -98,8 +98,8 @@ raster_stack_1920_lambert93 = projectRaster(raster_stack_1920, crs = "+init=epsg
 raster_stack_1920_lambert93_masked = mask(raster_stack_1920_lambert93, mask)
 ## Saison biologique 2020 - 2021 ##
 
-fs2021 <- c(list.files(path="~/Thèse/Resultats/2020_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2021 <- c(list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2021 = fs2021[-c(1:4, 35:62)]
 raster_stack_2021 = raster::stack(fs2021)
 vec_names_2021 = names(raster_stack_2021)
@@ -114,8 +114,8 @@ raster_stack_2021_lambert93 = projectRaster(raster_stack_2021, crs = "+init=epsg
 raster_stack_2021_lambert93_masked = mask(raster_stack_2021_lambert93, mask)
 ## Saison biologique 2021 - 2022 ##
 
-fs2122 <- c(list.files(path="~/Thèse/Resultats/2021_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE),
-            list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE))
+fs2122 <- c(list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
+            list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2122 = fs2122[-c(1:2, 41:64)]
 raster_stack_2122 = raster::stack(fs2122)
 vec_names_2122 = names(raster_stack_2122)
@@ -136,7 +136,7 @@ raster_stack_2122_lambert93 = projectRaster(raster_stack_2122, crs = "+init=epsg
 raster_stack_2122_lambert93_masked = mask(raster_stack_2122_lambert93, mask)
 ## Saison biologique 2022 ##
 
-fs22 <- list.files(path="~/Thèse/Resultats/2022_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE)
+fs22 <- list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 fs22 = fs22[-c(1:8)]
 raster_stack_22 = raster::stack(fs22)
 vec_names_22 = names(raster_stack_22)
@@ -149,7 +149,7 @@ raster_stack_22_lambert93_masked = mask(raster_stack_22_lambert93, mask)
 
 ## Saison biologique 2023 ##
 
-fs23 <- list.files(path="~/Thèse/Resultats/2023_RF_4bands_V2/rasters", pattern = "tif$", full.names = TRUE)
+fs23 <- list.files(path=paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 #fs23 = fs23[-c(1:8)]
 raster_stack_23 = raster::stack(fs23)
 vec_names_23 = names(raster_stack_23)
@@ -184,6 +184,11 @@ all_names = all_names[-ind]# dates en double
 
 
 
+
+
+
+
+
 #### drop small patches
 
 full_rasterstack_lambert93_masked_clean = raster::stack()
@@ -212,10 +217,17 @@ for (i in c(1:length(all_names))) {
 
 #plot(full_rasterstack_lambert93_masked_clean$X20170717)
 
+
+
+
+
+
 ##################################################
+############ - LANDSCAPE METRICS - ###############
 ##################################################
-##################################################
-##################################################
+
+####### Calculs des metriques ############
+
 
 # all
 check = check_landscape(full_rasterstack_lambert93_masked) # every landscape is ok
@@ -254,7 +266,6 @@ patch_complexity_1_cv = subset(patch_complexity_1_cv, patch_complexity_1_cv$clas
 spatial_metrics$frac_mn = patch_complexity_1$value
 spatial_metrics$frac_sd = patch_complexity_1_SD$value
 spatial_metrics$frac_cv = patch_complexity_1_cv$value
-
 
 
 
@@ -332,9 +343,7 @@ spatial_metrics$enn_np[patch_n_enn_1$layer] = patch_n_enn_1$value
 
 
 
-
 ################# Patch scale metrics #################
-
 
 
 spatial_metrics_patch = NULL
@@ -360,14 +369,12 @@ spatial_metrics_patch$enn = rep(NA, length(spatial_metrics_patch$date))
 spatial_metrics_patch$enn= all_patch_enn$value
 
 
-#############################################################
-#############################################################
-#############################################################
-#############################################################
 
 
 
-
+#############################################################
+###############- Essais graphiques du package -##############
+#############################################################
 
 
 ############## PLOTS #############
@@ -382,7 +389,7 @@ spatial_metrics_plot = spatial_metrics[c(164:188),] # select dates to plot
 spatial_metrics_plot = spatial_metrics[c(189:222),] # select dates to plot
 
 
-spatial_metrics_plot = spatial_metrics # select dates to plot
+spatial_metrics_plot = spatial_metrics # select dates to plot (all dates)
 
 # area 
 
@@ -514,7 +521,7 @@ hist(spatial_metrics_patch_plot_23$enn, main = "2023", xlab = "ENN", breaks = 15
 par(mfrow = c(1,1))
 
 
-par(mfrow = c(2,3))
+par(mfrow = c(3,3))
 hist(log(spatial_metrics_patch_plot_1718$enn), main = "2017-2018", xlab = "log(ENN)", breaks = 10)
 hist(log(spatial_metrics_patch_plot_1819$enn), main = "2018-2019", xlab = "log(ENN)", breaks = 10)
 hist(log(spatial_metrics_patch_plot_1920$enn), main = "2019-2020", xlab = "log(ENN)", breaks = 10)
@@ -533,125 +540,6 @@ hist(log(spatial_metrics_patch_plot_22$enn), main = "2022", xlab = "log(ENN)", b
 hist(log(spatial_metrics_patch_plot_23$enn), main = "2023", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
 
 par(mfrow = c(1,1))
-
-
-spatial_metrics_patch_plot_1718$logenn = log(spatial_metrics_patch_plot_1718$enn)
-spatial_metrics_patch_plot_1718 = as.data.frame(spatial_metrics_patch_plot_1718)
-spatial_metrics_patch_plot_1718$year = rep("2017-2018", nrow(spatial_metrics_patch_plot_1718))
-
-spatial_metrics_patch_plot_1819$logenn = log(spatial_metrics_patch_plot_1819$enn)
-spatial_metrics_patch_plot_1819 = as.data.frame(spatial_metrics_patch_plot_1819)
-spatial_metrics_patch_plot_1819$year = rep("2018-2019", nrow(spatial_metrics_patch_plot_1819))
-
-spatial_metrics_patch_plot_1920$logenn = log(spatial_metrics_patch_plot_1920$enn)
-spatial_metrics_patch_plot_1920 = as.data.frame(spatial_metrics_patch_plot_1920)
-spatial_metrics_patch_plot_1920$year = rep("2019-2020", nrow(spatial_metrics_patch_plot_1920))
-
-spatial_metrics_patch_plot_2021$logenn = log(spatial_metrics_patch_plot_2021$enn)
-spatial_metrics_patch_plot_2021 = as.data.frame(spatial_metrics_patch_plot_2021)
-spatial_metrics_patch_plot_2021$year = rep("2020-2021", nrow(spatial_metrics_patch_plot_2021))
-
-spatial_metrics_patch_plot_2122$logenn = log(spatial_metrics_patch_plot_2122$enn)
-spatial_metrics_patch_plot_2122 = as.data.frame(spatial_metrics_patch_plot_2122)
-spatial_metrics_patch_plot_2122$year = rep("2021-2022", nrow(spatial_metrics_patch_plot_2122))
-
-spatial_metrics_patch_plot_22$logenn = log(spatial_metrics_patch_plot_22$enn)
-spatial_metrics_patch_plot_22 = as.data.frame(spatial_metrics_patch_plot_22)
-spatial_metrics_patch_plot_22$year = rep("2022", nrow(spatial_metrics_patch_plot_22))
-
-spatial_metrics_patch_plot_23$logenn = log(spatial_metrics_patch_plot_23$enn)
-spatial_metrics_patch_plot_23 = as.data.frame(spatial_metrics_patch_plot_23)
-spatial_metrics_patch_plot_23$year = rep("2023", nrow(spatial_metrics_patch_plot_23))
-
-all_data_hist <- do.call('rbind', list(spatial_metrics_patch_plot_1718,
-                                       spatial_metrics_patch_plot_1819,
-                                       spatial_metrics_patch_plot_1920,
-                                       spatial_metrics_patch_plot_2021,
-                                       spatial_metrics_patch_plot_2122,
-                                       spatial_metrics_patch_plot_22,
-                                       spatial_metrics_patch_plot_23))
-
-
-
-par(mfrow = c(3,3))
-h1 = gghistogram(data=spatial_metrics_patch_plot_1718, x="logenn", y = "density", bins = 15, title = "2017-2018")
-h2 = gghistogram(data=spatial_metrics_patch_plot_1819, x="logenn", y = "density", bins = 15, title = "2018-2019")
-h3 = gghistogram(data=spatial_metrics_patch_plot_1920, x="logenn", y = "density", bins = 15, title = "2019-2020")
-h4 = gghistogram(data=spatial_metrics_patch_plot_2021, x="logenn", y = "density", bins = 15, title = "2020-2021")
-h5 = gghistogram(data=spatial_metrics_patch_plot_2122, x="logenn", y = "density", bins = 15, title = "2021-2022")
-h6 = gghistogram(data=spatial_metrics_patch_plot_22, x="logenn", y = "density", bins = 15, title = "2022-2023")
-h7 = gghistogram(data=spatial_metrics_patch_plot_23, x="logenn", y = "density", bins = 15, title = "2023-2024")
-
-ggarrange(h1,h2,h3,h4,h5,h6,h7)
-
-
-par(mfrow = c(3,3))
-h1 = gghistogram(data=spatial_metrics_patch_plot_1718, x="logenn", y = "count", bins = 7, title = "2017-2018")
-h2 = gghistogram(data=spatial_metrics_patch_plot_1819, x="logenn", y = "count", bins = 7, title = "2018-2019")
-h3 = gghistogram(data=spatial_metrics_patch_plot_1920, x="logenn", y = "count", bins = 7, title = "2019-2020")
-h4 = gghistogram(data=spatial_metrics_patch_plot_2021, x="logenn", y = "count", bins = 7, title = "2020-2021")
-h5 = gghistogram(data=spatial_metrics_patch_plot_2122, x="logenn", y = "count", bins = 7, title = "2021-2022")
-h6 = gghistogram(data=spatial_metrics_patch_plot_22, x="logenn", y = "count", bins = 7, title = "2022-2023")
-h7 = gghistogram(data=spatial_metrics_patch_plot_23, x="logenn", y = "count", bins = 7, title = "2023-2024")
-
-ggarrange(h1,h2,h3,h4,h5,h6,h7)
-
-
-
-
-###############################################
-
-spatial_metrics_patch_plot_23$logenn = log(spatial_metrics_patch_plot_23$enn)
-spatial_metrics_patch_plot_23 = as.data.frame(spatial_metrics_patch_plot_23)
-res = hist(log10(spatial_metrics_patch_plot_23$enn))
-
-spatial_metrics_patch_plot_1718$logenn = log(spatial_metrics_patch_plot_1718$enn)
-spatial_metrics_patch_plot_1718 = as.data.frame(spatial_metrics_patch_plot_1718)
-res2 = hist(log10(spatial_metrics_patch_plot_1718$enn))
-
-spatial_metrics_patch_plot_22$logenn = log(spatial_metrics_patch_plot_22$enn)
-spatial_metrics_patch_plot_22 = as.data.frame(spatial_metrics_patch_plot_22)
-res3 = hist(log10(spatial_metrics_patch_plot_22$enn))
-
-
-plot(res$mids,log10(res$density))
-points(res2$mids,log10(res2$density), col = "red")
-points(res3$mids,log10(res3$density), col = "green")
-
-plot(res$mids,log10(res$counts))
-points(res2$mids,log10(res2$counts), col = "red")
-points(res3$mids,log10(res3$counts), col = "green")
-
-
-
-######## khi2 tests ########
-
-par(mfrow = c(3,3))
-hist(log(spatial_metrics_patch_plot_1718$enn), main = "2017-2018", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist(log(spatial_metrics_patch_plot_1819$enn), main = "2018-2019", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist(log(spatial_metrics_patch_plot_1920$enn), main = "2019-2020", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist(log(spatial_metrics_patch_plot_2021$enn), main = "2020-2021", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist(log(spatial_metrics_patch_plot_2122$enn), main = "2021-2022", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist(log(spatial_metrics_patch_plot_22$enn), main = "2022-2023", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist(log(spatial_metrics_patch_plot_23$enn), main = "2023-2024", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-
-
-par(mfrow = c(1,1))
-hist_1718 = hist(log(spatial_metrics_patch_plot_1718$enn), main = "2017-2018", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist_1819 = hist(log(spatial_metrics_patch_plot_1819$enn), main = "2018-2019", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist_1920 = hist(log(spatial_metrics_patch_plot_1920$enn), main = "2019-2020", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist_2021 = hist(log(spatial_metrics_patch_plot_2021$enn), main = "2020-2021", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist_2122 = hist(log(spatial_metrics_patch_plot_2122$enn), main = "2021-2022", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist_22 = hist(log(spatial_metrics_patch_plot_22$enn), main = "2022-2023", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-hist_23 = hist(log(spatial_metrics_patch_plot_23$enn), main = "2023-2024", xlab = "log(ENN)", breaks = seq(2.5,8,by = 0.5))
-
-tableau = rbind(hist_1718[["density"]],hist_1819[["density"]],hist_1920[["density"]],
-                hist_2021[["density"]],hist_2122[["density"]],hist_22[["density"]],hist_23[["density"]])
-
-
-tableau = tableau[,-c(8,9,10,11)]
-khi_test = chisq.test(tableau)
-khi_test # pas de difference particuliere entre les distributions (khi2 d'independance)
 
 
 
@@ -718,97 +606,88 @@ plot_np = ggplot(data = patch_number, aes(x = date2, y = value, color = saison),
 plot_np
 
 
-?merge
-?match
 
 
-
-########## patch area heterogeneity per year ###########
-
-dates_np_sup10 = patch_number[,c(6,7,9)]
-dates_np_sup10 = dates_np_sup10[dates_np_sup10$value>=10,]
-
-
-
-
-
-
-
-
-
-
-all_patch_area = lsm_p_area(full_rasterstack_lambert93_masked_clean, directions = 4)
-all_patch_area = subset(all_patch_area, all_patch_area$class == 1)
-all_patch_area$date = rep(NA, length(all_patch_area$value))
-all_patch_area$date = all_dates[all_patch_area$layer]
-
-
-all_patch_area = all_patch_area[all_patch_area$date %in% dates_np_sup10$date,]
-all_patch_area$saison = rep(0)
-
-
-  
-
-  
-  
-dataref = patch_number[,c(7,9)]
-
-
-
-
-all_patch_area <- merge(dataref, all_patch_area, by = "date")
-all_patch_area = all_patch_area[,-9]
-
-
-colnames(all_patch_area) = c("date","saison","layer","level","class","id","metric","area")
-
-all_patch_area = all_patch_area[all_patch_area$area>=0.5,]
-years = c("2017","2018","2019","2020","2021","2022","2023")
-
-
-
-
-
-model=lm(all_patch_area$area ~ all_patch_area$saison )
-
-ANOVA=aov(model)
-
-TUKEY <- TukeyHSD(x=ANOVA, 'all_patch_area$saison', conf.level=0.95)
-
-plot(TUKEY , las=1 , col="brown")
-
-
-
-
-
-
-# I need to group the treatments that are not different each other together.
-generate_label_df <- function(TUKEY, variable){
-  
-  # Extract labels and factor levels from Tukey post-hoc 
-  Tukey.levels <- TUKEY[[variable]][,4]
-  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
-  
-  #I need to put the labels in the same order as in the boxplot :
-  Tukey.labels$treatment=rownames(Tukey.labels)
-  Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
-  return(Tukey.labels)
-}
-
-# Apply the function on my dataset
-LABELS <- generate_label_df(TUKEY , "all_patch_area$saison")
-
-
-names(LABELS)<-c('Letters','saison')
-all_patch_area = merge(LABELS,all_patch_area)
-
-p <- ggplot(all_patch_area, aes(x=saison, y=log(area), label = Letters)) + 
-  geom_boxplot()+
-  scale_x_discrete(labels = c("2017","2018","2019","2020","2021","2022","2023"))
-  #geom_text(aes(x=saison, y=log(area), label = Letters))
-
-
-p
+# ########## patch area heterogeneity per year ########### (essai infructueux de faire un test de tukey)
+# 
+# dates_np_sup10 = patch_number[,c(6,7,9)]
+# dates_np_sup10 = dates_np_sup10[dates_np_sup10$value>=10,] # dates où le nombre de patchs sur l'image est sup à 10
+# 
+# 
+# 
+# 
+# all_patch_area = lsm_p_area(full_rasterstack_lambert93_masked_clean, directions = 4)
+# all_patch_area = subset(all_patch_area, all_patch_area$class == 1)
+# all_patch_area$date = rep(NA, length(all_patch_area$value))
+# all_patch_area$date = all_dates[all_patch_area$layer]
+# 
+# 
+# all_patch_area = all_patch_area[all_patch_area$date %in% dates_np_sup10$date,]
+# all_patch_area$saison = rep(0)
+# 
+# 
+#   
+# 
+#   
+#   
+# dataref = patch_number[,c(7,9)]
+# 
+# 
+# 
+# 
+# all_patch_area <- merge(dataref, all_patch_area, by = "date")
+# all_patch_area = all_patch_area[,-9]
+# 
+# 
+# colnames(all_patch_area) = c("date","saison","layer","level","class","id","metric","area")
+# 
+# all_patch_area = all_patch_area[all_patch_area$area>=0.5,]
+# years = c("2017","2018","2019","2020","2021","2022","2023")
+# 
+# 
+# 
+# 
+# 
+# model=lm(all_patch_area$area ~ all_patch_area$saison )
+# 
+# ANOVA=aov(model)
+# 
+# TUKEY <- TukeyHSD(x=ANOVA, 'all_patch_area$saison', conf.level=0.95)
+# 
+# plot(TUKEY , las=1 , col="brown")
+# 
+# 
+# 
+# 
+# 
+# 
+# # I need to group the treatments that are not different each other together.
+# generate_label_df <- function(TUKEY, variable){
+#   
+#   # Extract labels and factor levels from Tukey post-hoc 
+#   Tukey.levels <- TUKEY[[variable]][,4]
+#   Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
+#   
+#   #I need to put the labels in the same order as in the boxplot :
+#   Tukey.labels$treatment=rownames(Tukey.labels)
+#   Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
+#   return(Tukey.labels)
+# }
+# 
+# # Apply the function on my dataset
+# LABELS <- generate_label_df(TUKEY , "all_patch_area$saison")
+# 
+# 
+# names(LABELS)<-c('Letters','saison')
+# all_patch_area = merge(LABELS,all_patch_area)
+# 
+# p <- ggplot(all_patch_area, aes(x=saison, y=log(area), label = Letters)) + 
+#   geom_boxplot()+
+#   scale_x_discrete(labels = c("2017","2018","2019","2020","2021","2022","2023"))
+#   #geom_text(aes(x=saison, y=log(area), label = Letters))
+# 
+# 
+# p
 
 
 
@@ -817,57 +696,20 @@ p
 
 
 
-#tri sur année normale à faire
-#par(mfrow = c(2,3))
 
 
-
-
-
-
-#all_patch_area_sub = all_patch_area[all_patch_area$saison == "6",]
-#area_patchs = all_patch_area_sub$area[log(all_patch_area_sub$area)<4.5]
+########################################################
+########### power law des tailles de patchs ############
+########################################################
 
 
 area_patchs = all_patch_area$area[log(all_patch_area$area)<4.5]
-
-#area_patchs= area_patchs*10000 #passage en m2
-
 ecdf_func = ecdf(area_patchs)
 
 
-
 values_ecdf = ecdf_func(area_patchs)
-values_inv_ecdf = 1-values_ecdf
+values_inv_ecdf = 1-values_ecdf # inverse cumulative distribution function
 
-
-
-
-
-### power law ####
-
-m_bl = conpl$new(area_patchs)
-
-est = estimate_xmin(m_bl)
-
-m_bl$setXmin(est)
-
-
-par(mfrow = c(1,1))
-
-plot(m_bl, main = "2022")
-lines(m_bl, col = 2, lwd = 2)
-
-
-datalmx = log(area_patchs)
-datalmx = datalmx[-14]
-datalmy = log(values_inv_ecdf)
-datalmy = datalmy[-14]
-lm = lm(datalmy ~ datalmx)
-summary(lm)
-
-
-plot(log(area_patchs), log(values_inv_ecdf))
 
 dfplot = data.frame(area_patchs, values_inv_ecdf)
 
@@ -882,13 +724,14 @@ p <- ggplot(dfplot, aes(x = area_patchs, y = values_inv_ecdf)) +
 p
 
 
+
+
+
+
+
 ########################################################
 ######################## ENN v2 ########################
 ########################################################
-
-
-
-
 
 
 
@@ -901,10 +744,6 @@ ENN_m$date = all_dates[ENN_m$layer]
 
 ENN_m = ENN_m[ENN_m$date %in% dates_np_sup10$date,]
 ENN_m$saison = rep(0)
-
-
-
-
 
 
 
@@ -1043,5 +882,5 @@ ggplot(patch_pafrac_1 %>% filter(saison.x %in% c("2","4","7")), aes(x = MoisJour
 
 
 
-plot(full_rasterstack_lambert93_masked_clean[[31]])
-show_patches(full_rasterstack_lambert93_masked_clean[[31]], class = 1, directions = 4, labels = F)
+# plot(full_rasterstack_lambert93_masked_clean[[31]])
+# show_patches(full_rasterstack_lambert93_masked_clean[[31]], class = 1, directions = 4, labels = F)

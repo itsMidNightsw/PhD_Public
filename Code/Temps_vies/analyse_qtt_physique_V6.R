@@ -1,7 +1,6 @@
 #analyse_qtt_physique_V6
 
 
-
 library(raster)
 library(lubridate)
 library(ggplot2)
@@ -9,8 +8,7 @@ library(gridExtra)
 
 ################
 
-
-
+# mask
 
 mask = raster(paste(getwd(),"/Data/mask_analyse_spatiale/mask_v1.tiff", sep = ""))
 premask <- is.na(mask)
@@ -21,16 +19,16 @@ plot(maskinv, colNA = "grey")
 
 masque_roseliere = mask
 
-###################Functions######################
-##################################################
+################### - Functions - ######################
+########################################################
 
-get_change_count <- function(x) {     # reste à tester 
-  nb_changes <- sum(diff(x) != 0)
-  ifelse(length(nb_changes) == 0, NA, nb_changes)
-}
+# get_change_count <- function(x) {     # reste à tester 
+#   nb_changes <- sum(diff(x) != 0)
+#   ifelse(length(nb_changes) == 0, NA, nb_changes)
+# }
 
 
-get_physical_values <- function(x, method, vec_day) {
+get_physical_values <- function(x, method, vec_day) { # 3 choix pour "method" ("start", "end", ou "lti")
   rlex = rle(x)
   run_all <- rlex$lengths
   indna = which(rlex$values == 0)
@@ -49,13 +47,13 @@ get_physical_values <- function(x, method, vec_day) {
     return(lti)
   }
   
-  #if (method == "ltd") {
-   # return(ltd)
-  #}
+  # if (method == "ltd") {
+  #   return(ltd)
+  # }
   
-  if (method == "start") {
-    return(bi)
-  }
+   if (method == "start") {
+     return(bi)
+   }
   
   if(method == "end"){
     return(bs)
@@ -65,7 +63,7 @@ get_physical_values <- function(x, method, vec_day) {
 }
 
 
-get_physical_values_abs <- function(x, method, vec_day) {
+get_physical_values_abs <- function(x, method, vec_day) { # 4 choix pour "method" ("start", "end", "ati" ou "atd")
   rlex = rle(x)
   run_all <- rlex$lengths
   indna = which(rlex$values == 1)
@@ -97,12 +95,16 @@ get_physical_values_abs <- function(x, method, vec_day) {
   
 }
 
-################### NEW DATA READ ######################
-########################################################
 
-#### periodes presence ####
+###################################################################
+################### Preparation des données  ######################
+###################################################################
+
+##############################
+#### periodes de presence ####
+##############################
+
 ## Saison biologique 2017 - 2018 ##
-
 fs1718 <- c(list.files(path=paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1718 = fs1718[-c(1:2,36:63)]
@@ -130,7 +132,6 @@ raster_stack_1718_lambert93_masked = mask(raster_stack_1718_lambert93, mask)
 
 
 ## Saison biologique 2018 - 2019 ##
-
 fs1819 <- c(list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1819 = fs1819[-c(1:6,35:63)]
@@ -143,8 +144,9 @@ crs(raster_stack_1819) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs"
 raster_stack_1819_lambert93 = projectRaster(raster_stack_1819, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_1819_lambert93_masked = mask(raster_stack_1819_lambert93, mask)
-## Saison biologique 2019 - 2020 ##
 
+
+## Saison biologique 2019 - 2020 ##
 fs1920 <- c(list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1920 = fs1920[-c(34:60)]
@@ -160,8 +162,9 @@ crs(raster_stack_1920) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs"
 raster_stack_1920_lambert93 = projectRaster(raster_stack_1920, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_1920_lambert93_masked = mask(raster_stack_1920_lambert93, mask)
-## Saison biologique 2020 - 2021 ##
 
+
+## Saison biologique 2020 - 2021 ##
 fs2021 <- c(list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2021 = fs2021[-c(1:4, 35:62)]
@@ -176,8 +179,9 @@ crs(raster_stack_2021) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs"
 raster_stack_2021_lambert93 = projectRaster(raster_stack_2021, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_2021_lambert93_masked = mask(raster_stack_2021_lambert93, mask)
-## Saison biologique 2021 - 2022 ##
 
+
+## Saison biologique 2021 - 2022 ##
 fs2122 <- c(list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2122 = fs2122[-c(1:3, 41:64)]
@@ -199,8 +203,9 @@ crs(raster_stack_2122) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs"
 raster_stack_2122_lambert93 = projectRaster(raster_stack_2122, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_2122_lambert93_masked = mask(raster_stack_2122_lambert93, mask)
-## Saison biologique 2022 ##
 
+
+## Saison biologique 2022 ##
 fs22 <- list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 fs22 = fs22[-c(1:9)]
 raster_stack_22 = raster::stack(fs22)
@@ -212,8 +217,8 @@ raster_stack_22_lambert93 = projectRaster(raster_stack_22, crs = "+init=epsg:215
 
 raster_stack_22_lambert93_masked = mask(raster_stack_22_lambert93, mask)
 
-## Saison biologique 2023 ##
 
+## Saison biologique 2023 ##
 fs23 <- list.files(path=paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE)
 #fs23 = fs23[-c(1:8)]
 raster_stack_23 = raster::stack(fs23)
@@ -226,6 +231,7 @@ raster_stack_23_lambert93 = projectRaster(raster_stack_23, crs = "+init=epsg:215
 raster_stack_23_lambert93_masked = mask(raster_stack_23_lambert93, mask)
 
 
+
 ########NA pixels
 anymap = raster_stack_1718_lambert93_masked[[1]]
 mapna = is.na(anymap)
@@ -233,9 +239,11 @@ mapna = is.na(anymap)
 
 
 
-#### periodes absences ####
-## Saison biologique 2017 - 2018 ##
+#############################
+#### periodes d'absences ####
+#############################
 
+## Saison biologique 2017 - 2018 ##
 fs1718 <- c(list.files(path=paste(getwd(),"/Classified_maps/2017_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1718_abs = fs1718[-c(1:16,54:63)]
@@ -259,7 +267,6 @@ raster_stack_1718_abs_lambert93_masked = mask(raster_stack_1718_abs_lambert93, m
 
 
 ## Saison biologique 2018 - 2019 ##
-
 fs1819 <- c(list.files(path=paste(getwd(),"/Classified_maps/2018_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1819_abs = fs1819[-c(1:24,54:63)]
@@ -273,8 +280,8 @@ raster_stack_1819_abs_lambert93 = projectRaster(raster_stack_1819_abs, crs = "+i
 
 raster_stack_1819_abs_lambert93_masked = mask(raster_stack_1819_abs_lambert93, mask)
 
-## Saison biologique 2019 - 2020 ##
 
+## Saison biologique 2019 - 2020 ##
 fs1920 <- c(list.files(path=paste(getwd(),"/Classified_maps/2019_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs1920_abs = fs1920[-c(1:19,51:60)]
@@ -288,8 +295,9 @@ crs(raster_stack_1920_abs) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs
 raster_stack_1920_abs_lambert93 = projectRaster(raster_stack_1920_abs, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_1920_abs_lambert93_masked = mask(raster_stack_1920_abs_lambert93, mask)
-## Saison biologique 2020 - 2021 ##
 
+
+## Saison biologique 2020 - 2021 ##
 fs2021 <- c(list.files(path=paste(getwd(),"/Classified_maps/2020_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2021_abs = fs2021[-c(1:21, 50:62)]
@@ -303,8 +311,9 @@ crs(raster_stack_2021_abs) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs
 raster_stack_2021_abs_lambert93 = projectRaster(raster_stack_2021_abs, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_2021_abs_lambert93_masked = mask(raster_stack_2021_abs_lambert93, mask)
-## Saison biologique 2021 - 2022 ##
 
+
+## Saison biologique 2021 - 2022 ##
 fs2122 <- c(list.files(path=paste(getwd(),"/Classified_maps/2021_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2122_abs = fs2122[-c(1:18, 52:64)]
@@ -318,8 +327,9 @@ crs(raster_stack_2122_abs) <- "+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs
 raster_stack_2122_abs_lambert93 = projectRaster(raster_stack_2122_abs, crs = "+init=epsg:2154", method = "ngb")
 
 raster_stack_2122_abs_lambert93_masked = mask(raster_stack_2122_abs_lambert93, mask)
-## Saison biologique 2022-2023 ##
 
+
+## Saison biologique 2022-2023 ##
 fs2223 <- c(list.files(path=paste(getwd(),"/Classified_maps/2022_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE),
             list.files(path=paste(getwd(),"/Classified_maps/2023_RF_4bands_V2/rasters", sep = ""), pattern = "tif$", full.names = TRUE))
 fs2223_abs = fs2223[-c(1:20,54:67)]
@@ -340,10 +350,11 @@ raster_stack_2223_abs_lambert93_masked = mask(raster_stack_2223_abs_lambert93, m
 
 
 
+############################################################
+################## CALCUL DATE DE DEMARRAGE ################
+############################################################
 
-############################################################
-###################### first date ##########################
-############################################################
+
 
 
 ###################### 2017-2018 ##########################
@@ -369,6 +380,8 @@ data_plot_1718$first_date = h[["counts"]]
 
 
 
+
+
 ###################### 2018-2019 ##########################
 
 first_dates_1819 <- calc(raster_stack_1819_lambert93_masked, function(x){get_physical_values(x, method = "start", vec_day = vec_day_1819)})
@@ -389,6 +402,9 @@ h = hist(first_dates_1819, labels = date_values_1819, main = "Starting date 2018
 data_plot_1819 = data.frame(date_values_1819)
 data_plot_1819$day_number = vec_day_1819
 data_plot_1819$first_date = h[["counts"]]
+
+
+
 
 
 ###################### 2019-2020 ##########################
@@ -413,6 +429,8 @@ data_plot_1920$day_number = vec_day_1920
 data_plot_1920$first_date = h[["counts"]]
 
 
+
+
 ###################### 2020-2021 ##########################
 
 first_dates_2021 <- calc(raster_stack_2021_lambert93_masked, function(x){get_physical_values(x, method = "start", vec_day = vec_day_2021)})
@@ -433,6 +451,8 @@ h = hist(first_dates_2021, labels = date_values_2021, main = "Starting date 2019
 data_plot_2021 = data.frame(date_values_2021)
 data_plot_2021$day_number = vec_day_2021
 data_plot_2021$first_date = h[["counts"]]
+
+
 
 
 ###################### 2021-2022 ##########################
@@ -456,6 +476,9 @@ data_plot_2122 = data.frame(date_values_2122)
 data_plot_2122$day_number = vec_day_2122
 data_plot_2122$first_date = h[["counts"]]
 
+
+
+
 ###################### 2022 ##########################
 
 first_dates_22 <- calc(raster_stack_22_lambert93_masked, function(x){get_physical_values(x, method = "start", vec_day = vec_day_22)})
@@ -476,6 +499,7 @@ h = hist(first_dates_22, labels = date_values_22, main = "Starting date 2022", b
 data_plot_22 = data.frame(date_values_22)
 data_plot_22$day_number = vec_day_22
 data_plot_22$first_date = h[["counts"]]
+
 
 
 
@@ -502,7 +526,7 @@ data_plot_23$first_date = h[["counts"]]
 
 
 
-######################## PLOTS STARTING DAY ##########################
+######################## PLOTS DATE DE DEMARRAGE ##########################
 
 
 p1 = ggplot()+
@@ -530,11 +554,15 @@ p1 = ggplot()+
 plot(p1)
 
 
+
+
 #########################################################
-################### extinction dates ####################
+################### DATES D'EXTINCTIONS #################
 #########################################################
 
 color_palette <- colorRampPalette(c("red", "green"))
+
+
 
 ###################### 2017-2018 ########################
 
@@ -574,6 +602,8 @@ data_plot_1819 = data.frame(date_values_1819)
 data_plot_1819$day_number = vec_day_1819
 data_plot_1819$last_date = h[["counts"]]
 
+
+
 ###################### 2019-2020 ########################
 
 last_dates_1920 <- calc(raster_stack_1920_lambert93_masked, function(x){get_physical_values(x, method = "end", vec_day = vec_day_1920)})
@@ -591,6 +621,8 @@ h = hist(last_dates_1920, labels = date_values_1920, main = "Extinction date 201
 data_plot_1920 = data.frame(date_values_1920)
 data_plot_1920$day_number = vec_day_1920
 data_plot_1920$last_date = h[["counts"]]
+
+
 
 ###################### 2020-2021 ########################
 
@@ -610,6 +642,8 @@ data_plot_2021 = data.frame(date_values_2021)
 data_plot_2021$day_number = vec_day_2021
 data_plot_2021$last_date = h[["counts"]]
 
+
+
 ###################### 2021-2022 ########################
 
 last_dates_2122 <- calc(raster_stack_2122_lambert93_masked, function(x){get_physical_values(x, method = "end", vec_day = vec_day_2122)})
@@ -627,6 +661,8 @@ h = hist(last_dates_2122, labels = date_values_2122, main = "Extinction date 202
 data_plot_2122 = data.frame(date_values_2122)
 data_plot_2122$day_number = vec_day_2122
 data_plot_2122$last_date = h[["counts"]]
+
+
 
 ######################### 2022 ##########################
 
@@ -646,8 +682,7 @@ data_plot_22$day_number = vec_day_22
 data_plot_22$last_date = h[["counts"]]
 
 
-
-######################## PLOTS EXTINCTION DAY ##########################
+######################## PLOTS DATE D'EXTINCTION ##########################
 
 
 p2 = ggplot()+
@@ -676,11 +711,13 @@ plot(p2)
 
 
 
-############################################################
-################## Lifetime durations ######################
-############################################################
+########################################################
+################## TEMPS DE VIES  ######################
+########################################################
 
 color_palette <- colorRampPalette(c("darkorange3", "green"))
+
+
 
 ###################### 2017-2018 ##########################
 
@@ -722,6 +759,8 @@ p3 = ggplot()+
 plot(p3)
 
 
+
+
 ###################### 2018-2019 ##########################
 
 diff_values_1819 = difftime(date_values_1819[last_dates_1819@data@values],
@@ -757,6 +796,8 @@ p3 = ggplot()+
 
 
 plot(p3)
+
+
 
 
 ###################### 2019-2020 ##########################
@@ -796,6 +837,8 @@ p3 = ggplot()+
 plot(p3)
 
 
+
+
 ###################### 2020-2021 ##########################
 diff_values_2021 = difftime(date_values_2021[last_dates_2021@data@values],
                             date_values_2021[first_dates_2021@data@values], 
@@ -831,6 +874,9 @@ p3 = ggplot()+
 
 plot(p3)
 
+
+
+
 ###################### 2021-2022 ##########################
 diff_values_2122 = difftime(date_values_2122[last_dates_2122@data@values],
                             date_values_2122[first_dates_2122@data@values], 
@@ -865,6 +911,8 @@ p3 = ggplot()+
 
 
 plot(p3)
+
+
 
 
 ###################### 2022 ##########################
@@ -910,20 +958,10 @@ plot(p3)
 
 
 
+#############################################################
+########### DATE DE PREMIERE ABS (2eme fonction) ############
+#############################################################
 
-
-
-
-
-
-
-
-
-
-
-############################################################
-###################### first ABS date ##########################
-############################################################
 
 
 ###################### 2017-2018 ##########################
@@ -949,6 +987,7 @@ data_plot_1718_abs$first_date = h[["counts"]]
 
 
 
+
 ###################### 2018-2019 ##########################
 
 first_dates_1819_abs <- calc(raster_stack_1819_abs_lambert93_masked, function(x){get_physical_values_abs(x, method = "start", vec_day = vec_day_1819_abs)})
@@ -969,6 +1008,8 @@ h = hist(first_dates_1819_abs, labels = date_values_1819_abs, main = "Starting d
 data_plot_1819_abs = data.frame(date_values_1819_abs)
 data_plot_1819_abs$day_number = vec_day_1819_abs
 data_plot_1819_abs$first_date = h[["counts"]]
+
+
 
 
 ###################### 2019-2020 ##########################
@@ -993,6 +1034,8 @@ data_plot_1920_abs$day_number = vec_day_1920_abs
 data_plot_1920_abs$first_date = h[["counts"]]
 
 
+
+
 ###################### 2020-2021_abs ##########################
 
 first_dates_2021_abs <- calc(raster_stack_2021_abs_lambert93_masked, function(x){get_physical_values_abs(x, method = "start", vec_day = vec_day_2021_abs)})
@@ -1015,6 +1058,9 @@ data_plot_2021_abs$day_number = vec_day_2021_abs
 data_plot_2021_abs$first_date = h[["counts"]]
 
 
+
+
+
 ###################### 2021_abs-2022 ##########################
 
 first_dates_2122_abs <- calc(raster_stack_2122_abs_lambert93_masked, function(x){get_physical_values_abs(x, method = "start", vec_day = vec_day_2122_abs)})
@@ -1035,6 +1081,9 @@ h = hist(first_dates_2122_abs, labels = date_values_2122_abs, main = "Starting d
 data_plot_2122_abs = data.frame(date_values_2122_abs)
 data_plot_2122_abs$day_number = vec_day_2122_abs
 data_plot_2122_abs$first_date = h[["counts"]]
+
+
+
 
 ###################### 2022 ##########################
 
@@ -1063,11 +1112,8 @@ data_plot_2223_abs$first_date = h[["counts"]]
 
 
 
-
-
-
 #########################################################
-################### extinction dates ####################
+############### DATE DE DERNIERE ABS (2eme fonction)#####
 #########################################################
 
 color_palette <- colorRampPalette(c("red", "green"))
@@ -1110,6 +1156,9 @@ data_plot_1819_abs = data.frame(date_values_1819_abs)
 data_plot_1819_abs$day_number = vec_day_1819_abs
 data_plot_1819_abs$last_date = h[["counts"]]
 
+
+
+
 ###################### 2019-2020 ########################
 
 last_dates_1920_abs <- calc(raster_stack_1920_abs_lambert93_masked, function(x){get_physical_values_abs(x, method = "end", vec_day = vec_day_1920_abs)})
@@ -1128,7 +1177,10 @@ data_plot_1920_abs = data.frame(date_values_1920_abs)
 data_plot_1920_abs$day_number = vec_day_1920_abs
 data_plot_1920_abs$last_date = h[["counts"]]
 
-###################### 2020-2021_abs ########################
+
+
+
+###################### 2020-2021 ########################
 
 last_dates_2021_abs <- calc(raster_stack_2021_abs_lambert93_masked, function(x){get_physical_values_abs(x, method = "end", vec_day = vec_day_2021_abs)})
 last_dates_2021_abs[mapna] = NA
@@ -1146,7 +1198,10 @@ data_plot_2021_abs = data.frame(date_values_2021_abs)
 data_plot_2021_abs$day_number = vec_day_2021_abs
 data_plot_2021_abs$last_date = h[["counts"]]
 
-###################### 2021_abs-2022 ########################
+
+
+
+###################### 2021 - 2022 ########################
 
 last_dates_2122_abs <- calc(raster_stack_2122_abs_lambert93_masked, function(x){get_physical_values_abs(x, method = "end", vec_day = vec_day_2122_abs)})
 last_dates_2122_abs[mapna] = NA
@@ -1163,6 +1218,9 @@ h = hist(last_dates_2122_abs, labels = date_values_2122_abs, main = "Extinction 
 data_plot_2122_abs = data.frame(date_values_2122_abs)
 data_plot_2122_abs$day_number = vec_day_2122_abs
 data_plot_2122_abs$last_date = h[["counts"]]
+
+
+
 
 ######################### 2022 ##########################
 
@@ -1185,9 +1243,9 @@ data_plot_2223_abs$last_date = h[["counts"]]
 
 
 
-############################################################
-################## abs time durations ######################
-############################################################
+#####################################################
+################## TEMPS D'ABS ######################
+#####################################################
 
 color_palette <- colorRampPalette(c("darkorange3", "green"))
 
@@ -1266,6 +1324,8 @@ p3 = ggplot()+
 plot(p3)
 
 
+
+
 ###################### 2019-2020 ##########################
 
 diff_values_1920_abs = difftime(date_values_1920_abs[last_dates_1920_abs@data@values],
@@ -1301,6 +1361,9 @@ p3 = ggplot()+
 
 
 plot(p3)
+
+
+
 
 
 ###################### 2020-2021 ##########################
@@ -1339,6 +1402,9 @@ p3 = ggplot()+
 
 plot(p3)
 
+
+
+
 ###################### 2021-2022 ##########################
 
 
@@ -1375,6 +1441,8 @@ p3 = ggplot()+
 
 
 plot(p3)
+
+
 
 
 ###################### 2022 - 2023 ##########################
@@ -1468,58 +1536,57 @@ plot_multi_histogram(all_data_hist, "layer", "year")
 
 
 
-##########
-
-fd_hist_1718 = as.data.frame(first_dates_1718)
-fd_hist_1718$date = date_values_1718[fd_hist_1718$layer+1]
-fd_hist_1718$year = rep("2017-2018", nrow(fd_hist_1718))
-fd_hist_1819 = as.data.frame(first_dates_1819)
-fd_hist_1819$date = date_values_1819[fd_hist_1819$layer+1]
-fd_hist_1819$year = rep("2018-2019", nrow(fd_hist_1819))
-fd_hist_1920 = as.data.frame(first_dates_1920)
-fd_hist_1920$date = date_values_1920[fd_hist_1920$layer+1]
-fd_hist_1920$year = rep("2019-2020", nrow(fd_hist_1920))
-fd_hist_2021 = as.data.frame(first_dates_2021)
-fd_hist_2021$date = date_values_2021[fd_hist_2021$layer+1]
-fd_hist_2021$year = rep("2020-2021", nrow(fd_hist_2021))
-fd_hist_2122 = as.data.frame(first_dates_2122)
-fd_hist_2122$date = date_values_2122[fd_hist_2122$layer+1]
-fd_hist_2122$year = rep("2021-2022", nrow(fd_hist_2122))
-fd_hist_22 = as.data.frame(first_dates_22)
-fd_hist_22$date = date_values_22[fd_hist_22$layer+1]
-fd_hist_22$year = rep("2022", nrow(fd_hist_22))
-all_fd_data_hist <- do.call('rbind', list(fd_hist_1718,fd_hist_1819,fd_hist_1920,fd_hist_2021,fd_hist_2122,fd_hist_22))
-
-
-
-ex_hist_1718 = as.data.frame(last_dates_1718)
-ex_hist_1718$date = date_values_1718[ex_hist_1718$layer+1]
-ex_hist_1718$year = rep("2017-2018", nrow(ex_hist_1718))
-ex_hist_1819 = as.data.frame(last_dates_1819)
-ex_hist_1819$date = date_values_1819[ex_hist_1819$layer+1]
-ex_hist_1819$year = rep("2018-2019", nrow(ex_hist_1819))
-ex_hist_1920 = as.data.frame(last_dates_1920)
-ex_hist_1920$date = date_values_1920[ex_hist_1920$layer+1]
-ex_hist_1920$year = rep("2019-2020", nrow(ex_hist_1920))
-ex_hist_2021 = as.data.frame(last_dates_2021)
-ex_hist_2021$date = date_values_2021[ex_hist_2021$layer+1]
-ex_hist_2021$year = rep("2020-2021", nrow(ex_hist_2021))
-ex_hist_2122 = as.data.frame(last_dates_2122)
-ex_hist_2122$date = date_values_2122[ex_hist_2122$layer+1]
-ex_hist_2122$year = rep("2021-2022", nrow(ex_hist_2122))
-ex_hist_22 = as.data.frame(last_dates_22)
-ex_hist_22$date = date_values_22[ex_hist_22$layer+1]
-ex_hist_22$year = rep("2022", nrow(ex_hist_22))
-all_ex_data_hist <- do.call('rbind', list(ex_hist_1718,ex_hist_1819,ex_hist_1920,ex_hist_2021,ex_hist_2122,ex_hist_22))
-
-
-
+# ##########
+# 
+# fd_hist_1718 = as.data.frame(first_dates_1718)
+# fd_hist_1718$date = date_values_1718[fd_hist_1718$layer+1]
+# fd_hist_1718$year = rep("2017-2018", nrow(fd_hist_1718))
+# fd_hist_1819 = as.data.frame(first_dates_1819)
+# fd_hist_1819$date = date_values_1819[fd_hist_1819$layer+1]
+# fd_hist_1819$year = rep("2018-2019", nrow(fd_hist_1819))
+# fd_hist_1920 = as.data.frame(first_dates_1920)
+# fd_hist_1920$date = date_values_1920[fd_hist_1920$layer+1]
+# fd_hist_1920$year = rep("2019-2020", nrow(fd_hist_1920))
+# fd_hist_2021 = as.data.frame(first_dates_2021)
+# fd_hist_2021$date = date_values_2021[fd_hist_2021$layer+1]
+# fd_hist_2021$year = rep("2020-2021", nrow(fd_hist_2021))
+# fd_hist_2122 = as.data.frame(first_dates_2122)
+# fd_hist_2122$date = date_values_2122[fd_hist_2122$layer+1]
+# fd_hist_2122$year = rep("2021-2022", nrow(fd_hist_2122))
+# fd_hist_22 = as.data.frame(first_dates_22)
+# fd_hist_22$date = date_values_22[fd_hist_22$layer+1]
+# fd_hist_22$year = rep("2022", nrow(fd_hist_22))
+# all_fd_data_hist <- do.call('rbind', list(fd_hist_1718,fd_hist_1819,fd_hist_1920,fd_hist_2021,fd_hist_2122,fd_hist_22))
+# 
+# 
+# 
+# ex_hist_1718 = as.data.frame(last_dates_1718)
+# ex_hist_1718$date = date_values_1718[ex_hist_1718$layer+1]
+# ex_hist_1718$year = rep("2017-2018", nrow(ex_hist_1718))
+# ex_hist_1819 = as.data.frame(last_dates_1819)
+# ex_hist_1819$date = date_values_1819[ex_hist_1819$layer+1]
+# ex_hist_1819$year = rep("2018-2019", nrow(ex_hist_1819))
+# ex_hist_1920 = as.data.frame(last_dates_1920)
+# ex_hist_1920$date = date_values_1920[ex_hist_1920$layer+1]
+# ex_hist_1920$year = rep("2019-2020", nrow(ex_hist_1920))
+# ex_hist_2021 = as.data.frame(last_dates_2021)
+# ex_hist_2021$date = date_values_2021[ex_hist_2021$layer+1]
+# ex_hist_2021$year = rep("2020-2021", nrow(ex_hist_2021))
+# ex_hist_2122 = as.data.frame(last_dates_2122)
+# ex_hist_2122$date = date_values_2122[ex_hist_2122$layer+1]
+# ex_hist_2122$year = rep("2021-2022", nrow(ex_hist_2122))
+# ex_hist_22 = as.data.frame(last_dates_22)
+# ex_hist_22$date = date_values_22[ex_hist_22$layer+1]
+# ex_hist_22$year = rep("2022", nrow(ex_hist_22))
+# all_ex_data_hist <- do.call('rbind', list(ex_hist_1718,ex_hist_1819,ex_hist_1920,ex_hist_2021,ex_hist_2122,ex_hist_22))
+# 
+# 
+# 
 
 
 
 
 ############ write rasters #################
-
 
 
 
@@ -1560,32 +1627,32 @@ raster::writeRaster(atd_2223, paste(getwd(),"/Graphical_results/Qtt_physiques/ra
 
 
 
-
-
-dataset_lifetimes = all_data_hist
-dataset_lifetimes = na.omit(all_data_hist)
-dataset_lifetimes$year = as.factor(dataset_lifetimes$year)
-colnames(dataset_lifetimes) = c("lifetime", "year")
-summary(dataset_lifetimes)
-
-write.csv(dataset_lifetimes, "~/Thèse/Resultats/Qtt_physiques/resultsV6/dataset_lifetimes_newmask.csv")
-
-
-dataset_fd_ex = cbind(all_fd_data_hist, all_ex_data_hist)
-dataset_fd_ex = dataset_fd_ex[,-c(1,3,4)]
-colnames(dataset_fd_ex) = c("first_date", "last_date", "year")
-dataset_fd_ex = na.omit(dataset_fd_ex)
-
-write.csv(dataset_fd_ex, "~/Thèse/Resultats/Qtt_physiques/resultsV6/dataset_fd_ex_newmask.csv")
-
-
-
-diffd = difftime(dataset_fd_ex$last_date,dataset_fd_ex$first_date, units="days")
-dataset_fd_ex$diffd = diffd
-
-hist(as.numeric(dataset_fd_ex$diffd), breaks = 40)
-hist(dataset_lifetimes$lifetime, breaks = 40)
-
+# 
+# 
+# dataset_lifetimes = all_data_hist
+# dataset_lifetimes = na.omit(all_data_hist)
+# dataset_lifetimes$year = as.factor(dataset_lifetimes$year)
+# colnames(dataset_lifetimes) = c("lifetime", "year")
+# summary(dataset_lifetimes)
+# 
+# write.csv(dataset_lifetimes, "~/Thèse/Resultats/Qtt_physiques/resultsV6/dataset_lifetimes_newmask.csv")
+# 
+# 
+# dataset_fd_ex = cbind(all_fd_data_hist, all_ex_data_hist)
+# dataset_fd_ex = dataset_fd_ex[,-c(1,3,4)]
+# colnames(dataset_fd_ex) = c("first_date", "last_date", "year")
+# dataset_fd_ex = na.omit(dataset_fd_ex)
+# 
+# write.csv(dataset_fd_ex, "~/Thèse/Resultats/Qtt_physiques/resultsV6/dataset_fd_ex_newmask.csv")
+# 
+# 
+# 
+# diffd = difftime(dataset_fd_ex$last_date,dataset_fd_ex$first_date, units="days")
+# dataset_fd_ex$diffd = diffd
+# 
+# hist(as.numeric(dataset_fd_ex$diffd), breaks = 40)
+# hist(dataset_lifetimes$lifetime, breaks = 40)
+# 
 
 
 
@@ -1600,7 +1667,6 @@ ltd_1920 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_1920_r
 ltd_2021 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2021_raster.tif")
 
 ltd_2122 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_2122_raster.tif")
-
 
 ltd_22 = raster("~/Thèse/Resultats/Qtt_physiques/resultsV6/rasters/ltd_22_raster.tif")
 
