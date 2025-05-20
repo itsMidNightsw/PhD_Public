@@ -36,7 +36,9 @@ test <- presabs[ind==2,]
 
 ##actual random forest
 
-rfpa <- randomForest(pre_abs~., ntree = 500,data=train, proximity=TRUE, na.action = na.omit)
+rfpa <- randomForest(pre_abs~., ntree = 500,data=train, proximity=TRUE, na.action = na.omit) # makes the RF object
+
+
 #rfpa <- randomForest(pre_abs~bleu+vert+rouge+pir, ntree = 500,data=train, proximity=TRUE, na.action = na.omit) #avec date
 #rfpa <- randomForest(presence.absence~., ntree = 500, mtry = 2 ,data=train, proximity=TRUE)#difference ?
 #rfpa <- randomForest(presence.absence~., ntree = 500, mtry = 1 ,data=train, proximity=TRUE)
